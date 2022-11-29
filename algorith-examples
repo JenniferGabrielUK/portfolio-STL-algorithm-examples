@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include <cctype>
+
+class Person {
+    std::string name;
+    int age;
+public:
+    Person() = default;
+    Person(std::string name, int age)
+        :name{ name }, age{ age } {}
+    bool operator<(const Person& rhs) const { //user-defined types either need overloaded less than operator
+        return this->age < rhs.age;
+    }
+    bool operator==(const Person& rhs) const { //overloaded equality operator
+        return (this->name == rhs.name && this->age == rhs.age);
+    }
+};
+
+void find_test() {
+    std::cout << "\n===========Find Algorithm============" << std::endl;
+    std::vector<int> vec{ 1,2,3,4,5 };
+    auto loc = std::find(std::begin(vec), std::end(vec), 1); //will find the first occurance of the element (1) in the vector container
+    if (loc != std::end(vec))
+        std::cout << "Found the number " << *loc << "." << std::endl;
+    else
+        std::cout << "Couldn't find the number." << std::endl;
+}
+
+int main()
+{
+    find_test();
+    return 0;
+}
