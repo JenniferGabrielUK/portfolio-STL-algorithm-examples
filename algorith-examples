@@ -66,10 +66,26 @@ void count_if_test() {
     std::cout << "There are " << num << " elements greater than 5 found." << std::endl;
 }
 
+void replace_test() {
+    std::cout << "\n=========Replace==========" << std::endl;
+    std::vector<int> vec{ 1,2,3,4,5,1,2,1 };
+    for (auto i : vec) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
+    std::replace(vec.begin(), vec.end(), 1, 100); //replacing the 1's with 100s
+    for (auto i : vec) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+}
+
 int main()
 {
     find_test();
     count_test(); 
     count_if_test();
+    replace_test();
     return 0;
 }
